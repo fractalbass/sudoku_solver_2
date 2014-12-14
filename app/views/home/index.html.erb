@@ -1,14 +1,18 @@
-<div class="container-fluid" ng-app="sudoku_solver_2">
-  <div class="panel panel-success">
-    <div class="panel-heading">
-      <h1 ng-if="name">Hello, {{name}}</h1>
-    </div>
-    <div class="panel-body">
-      <form class="form-inline">
-        <div class="form-group">
-          <input class="form-control" type="text" placeholder="Enter your name" autofocus ng-model="name">
-        </div>
-      </form>
-    </div>
-  </div>
+
+<div ng-app="sudokuApp" ng-controller="SudokuCtrl">
+
+        <h2>Sudoku</h2>
+        <table>
+            <tr ng-repeat="row in sudoku">
+                <td class="animated fadeIn" ng-repeat="cell in row track by $index"><input type="text" value="{{ cell }} " size="1"></td>
+            </tr>
+        </table>
+
+        <button ng-click="solve()">Solve</button><button ng-click="reset()">Reset</button>
+
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
 </div>

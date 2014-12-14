@@ -27,6 +27,7 @@ gem 'jquery-rails'
 gem 'sass', '3.2.9'
 
 gem 'bower-rails'
+gem 'angular-rails-templates'
 
 group :test, :development do
   gem "rspec-rails", "~> 2.0"

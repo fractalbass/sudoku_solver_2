@@ -1,0 +1,23 @@
+.example-animate-container {
+    background:white;
+    border:1px solid black;
+    list-style:none;
+    margin:0;
+    padding:0 10px;
+}
+
+.animate-repeat.ng-enter,
+.animate-repeat.ng-leave-active{
+    opacity:0;
+}
+.animate.ng-leave,
+.animate-repeat.ng-enter-active{
+    opacity:1;
+}
+
+.animate-repeat.ng-enter,
+.animate-repeat.ng-leave,
+.animate-repeat.ng-move {
+    -webkit-transition:2.5s linear all;
+    transition:2.5s linear all;
+}
