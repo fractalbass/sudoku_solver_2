@@ -1,18 +1,22 @@
 
-<div ng-app="sudokuApp" ng-controller="SudokuCtrl">
+<div class="container offset1 span4" ng-app="sudokuApp" ng-controller="SudokuCtrl">
 
-        <h2>Sudoku</h2>
+    <div class="sudokubox">
         <table>
-            <tr ng-repeat="row in sudoku">
-                <td class="animated fadeIn" ng-repeat="cell in row track by $index"><input type="text" value="{{ cell }} " size="1"></td>
-            </tr>
+          <tr ng-repeat="row in sudoku">
+            <td style="max-width:30px;" class="animated fadeIn" ng-repeat="cell in row track by $index">
+              <input style="max-width:10px;" size="1" type="text" value="{{ cell }} " size="1">
+            </td>
+          </tr>
         </table>
-
-        <button ng-click="solve()">Solve</button><button ng-click="reset()">Reset</button>
+    </div>
+    <div class="sudokubuttons">
+      <button ng-click="solve()">Solve</button>
+      <button ng-click="reset()">Reset</button>
+    </div>
+  </div>
 
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
 <![endif]-->
-
-</div>

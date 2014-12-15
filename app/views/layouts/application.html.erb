@@ -2,16 +2,79 @@
 <html>
 <head>
   <title>SudokuSolver2</title>
-    <%= stylesheet_link_tag "application", media: "all" %>
     <%= stylesheet_link_tag "animations", media: "all" %>
     <%= stylesheet_link_tag "animate", media: "all" %>
     <%= javascript_include_tag "application" %>
     <%= javascript_include_tag "app" %>
+    <%= stylesheet_link_tag "bootstrap_and_overrides", media: "all" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="row">
+  <div class="span12">
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Sudoku Solver</a>
 
-<%= yield %>
+          <div class="nav-collapse">
 
+            <ul class="nav">
+              <li><%= link_to "Puzzles", "http://www.dailysudoku.com/sudoku/today.shtml", target: "_blank" %></li>
+              <li><%= link_to "Math of Sukoku", "http://en.wikipedia.org/wiki/Mathematics_of_Sudoku" , target: "_blank" %></li>
+              <li><%= link_to "My Resume", "/MRP_Resume_2013_II.pdf" , target: "_blank" %></li>
+              <li><%= link_to "git the code", "https://github.com/fractalbass/sudoku_solver" , target: "_blank" %></li>
+              <li><%= link_to "Contact", "https://sites.google.com/a/paintedharmony.com/www/" , target: "_blank" %></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="span12 blue">
+    <div class="down">
+      <div class="row blue pad30">
+
+          <%= yield %>
+
+        <div class="span6 well">
+          <h2>Miles Porter</h2>Senior Software Consultant<br>Painted Harmony Group,
+          Inc.<br>mporter(AT)paintedharmony(DOT)com<br><br>
+          "I first started doing Sudoku puzzles a few years ago while on a 3 hour plane flight. I was hooked. Eventually, I
+          came across a
+          Sudoku that I could not do. I was completely frustrated, and the puzzle that I was working on was printed in a
+          weekly newspaper and
+          I didn't want to wait an entire week to see the solution. So, I did what any good software engineer would do... I
+          decided to write
+          a program/algorithm to solve the puzzle. At first, I tried the brute-force method of plugging in random numbers. I
+          quickly discovered
+          that would never work because there are just too many combinations... I continued to think about how to write code
+          to solve Sudoku puzzles.
+          There are, of course, countless sites and free software that provide solutions to the problem. I wanted, however,
+          to see if I could
+          do it myself. The result of that effort is what you see in front fo you. The code uses a number of different
+          techniques to try and
+          deduce what values can be inferred by the puzzle. After all the inferred cells are set, the program uses recursion
+          to complete the puzzle."
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="text-center">
+    <% if @solutions_found %>
+      Puzzles Solved To Date: <%= @solutions_found %><br>
+    <% end %>
+    Powered by <%= image_tag("rails.png") %> Ruby on Rails
+  </div>
+</div>
 </body>
 </html>

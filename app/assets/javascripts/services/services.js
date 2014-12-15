@@ -13,7 +13,7 @@
             var deferred = $q.defer();
 
             var req = {
-                url: '/app/sudoku/sudoku.json',
+                url: 'sudoku/solve',
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
