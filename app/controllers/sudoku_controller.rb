@@ -1,5 +1,7 @@
 class SudokuController < ApplicationController
   def solve
+    data = params[:data]
+
     solution = ["518496732",
                 "647532981",
                 "293817546",

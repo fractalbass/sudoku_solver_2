@@ -11,7 +11,7 @@
 
             $scope.solve = function() {
 
-                var promise = sudokuService.solve();
+                var promise = sudokuService.solve($scope.sudoku);
                 promise.then( function(data) {
                     $scope.sudoku = data;
                 });
