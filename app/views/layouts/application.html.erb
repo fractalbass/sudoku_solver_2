@@ -2,11 +2,11 @@
 <html>
 <head>
   <title>SudokuSolver2</title>
-  <link rel="stylesheet" type="text/css" href="<%= asset_path("animations.css") %>">
-  <link rel="stylesheet" type="text/css" href="<%= asset_path("animate.css") %>">
-  <link rel="stylesheet" type="text/css" href="<%= asset_path("bootstrap_and_overrides.css") %>">
-  <script type="text/javascript" src="<%=asset_path("application.js")%>"></script>
-  <script type="text/javascript" src="<%=asset_path("app.js")%>"></script>
+  <%=stylesheet_link_tag "animations.css" %>
+  <%=stylesheet_link_tag "animate" %>
+  <%=stylesheet_link_tag "bootstrap_and_overrides.css" %>
+  <%=javascript_include_tag "application" %>
+  <%=javascript_include_tag "app"%>
   <%= csrf_meta_tags %>
 </head>
 <body class="blue">
