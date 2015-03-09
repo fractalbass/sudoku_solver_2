@@ -26,6 +26,7 @@
                     deferred.resolve(data);
                 }).error(function(data, status) {
                   console.error("There was an error: " + status + ": " + data );
+                  alert("There was an error solving your puzzle.  Are you sure you entered it correctly?");
                 });
 
             return deferred.promise;
