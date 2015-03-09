@@ -3,9 +3,10 @@
 
     <div class="sudokubox">
         <table>
-          <tr ng-repeat="row in sudoku">
+          <tr ng-repeat="row in sudoku track by $index">
             <td style="max-width:30px;" class="animated fadeIn" ng-repeat="cell in row track by $index">
-              <input style="max-width:10px;" size="1" type="text" value="{{ cell }} " size="1">
+              <!--input ng-model="sudoku.row.$index" style="max-width:10px;" size="1" type="text" value="{{ cell }} " size="1" -->
+              <input ng-model="row[$index]" style="max-width:10px;" type="text" size="1">
             </td>
           </tr>
         </table>
@@ -13,6 +14,7 @@
     <div class="sudokubuttons">
       <button ng-click="solve()">Solve</button>
       <button ng-click="reset()">Reset</button>
+      <button ng-click="clear()">Clear</button>
     </div>
   </div>
 

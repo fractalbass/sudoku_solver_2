@@ -6,19 +6,20 @@
 
         return {
             solve :solve,
-            reset: reset
+            reset: reset,
+            clear: clear
         };
 
-        function solve(scope) {
+        function solve(sudoku) {
             var deferred = $q.defer();
-
+            console.log("Now attempting to solve " + JSON.stringify(sudoku));
             var req = {
                 url: 'sudoku/solve',
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                data: { test: 'test'}
+                params: { data: JSON.stringify(sudoku) }
             }
 
             $http(req).success(function(data, scope) {
@@ -30,17 +31,32 @@
             return deferred.promise;
         }
 
+        function clear() {
+            return  [
+                    ['x','x','x','x','x','x','x','x','x'],
+                    ['x','x','x','x','x','x','x','x','x'],
+                    ['x','x','x','x','x','x','x','x','x'],
+                    ['x','x','x','x','x','x','x','x','x'],
+                    ['x','x','x','x','x','x','x','x','x'],
+                    ['x','x','x','x','x','x','x','x','x'],
+                    ['x','x','x','x','x','x','x','x','x'],
+                    ['x','x','x','x','x','x','x','x','x'],
+                    ['x','x','x','x','x','x','x','x','x']
+                    ];
+        }
+
         function reset() {
-            return [
-                "5xx4x67xx",
-                "xxx5xx9xx",
-                "2xxx17x4x",
-                "xxx72xx1x",
-                "9xxxxxxx8",
-                "x7xx68xxx",
-                "x3x27xxx5",
-                "xx4xx3xxx",
-                "xx26x4xx3"];
+            return  [['x','2','3','x','x','x','5','9','x'],
+                     ['x','4','1','x','x','x','3','6','x'],
+                     ['x','x','x','x','4','x','x','x','x'],
+                     ['x','x','2','x','9','x','8','x','x'],
+                     ['6','x','8','x','x','x','7','x','9'],
+                     ['9','x','x','3','8','6','x','x','2'],
+                     ['x','5','x','x','x','x','x','2','x'],
+                     ['x','x','6','x','x','x','4','x','x'],
+                     ['x','x','x','2','6','5','x','x','x']];
+
+
         }
     };
 })();
