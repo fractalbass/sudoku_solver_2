@@ -14,6 +14,8 @@
             $scope.sudoku = sudokuService.reset();
 
             var buttonsActive = function(state) {
+                //  This is done because the ng-disabled doesn't work well when you are
+                //  trying to disable the same button you just clicked on.
                 var solveBtn = angular.element(document.querySelector( '#solve' ));
                 var clearBtn = angular.element(document.querySelector( '#clear' ));
                 var resetBtn = angular.element(document.querySelector( '#reset' ));
@@ -51,8 +53,8 @@
                         usSpinnerService.stop('spinner-1');
                         buttonsActive(true);
                     }, (function(data) {
-                        alert("There has been an error solving the sudoku");
                         usSpinnerService.stop('spinner-1');
+                        alert("There has been an error solving the sudoku.  Please try again and make sure you enter all the numbers correctly.");
                         buttonsActive(true);
                     }));
             };
