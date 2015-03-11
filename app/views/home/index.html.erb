@@ -1,10 +1,12 @@
 
-<div class="container offset1 span4" ng-app="sudokuApp" ng-controller="SudokuCtrl">
+<div class="container offset1 span4">
 
-    <div class="sudokubox">
+
+  <div class="sudokubox animated">
+    <span us-spinner="{radius:30, width:8, length: 16}" spinner-key="spinner-1"></span>
         <table>
-          <tr ng-repeat="row in sudoku track by $index">
-            <td style="max-width:30px;" class="animated fadeIn" ng-repeat="cell in row track by $index">
+          <tr class="sudokurow" ng-repeat="row in sudoku track by $index">
+            <td class="sudokucell row{{$index}} col{{$parent.$index}} animated fadeIn" ng-repeat="cell in row track by $index">
               <!--input ng-model="sudoku.row.$index" style="max-width:10px;" size="1" type="text" value="{{ cell }} " size="1" -->
               <input ng-model="row[$index]" style="max-width:10px;" type="text" size="1">
             </td>
@@ -12,9 +14,9 @@
         </table>
     </div>
     <div class="sudokubuttons">
-      <button ng-click="solve()">Solve</button>
-      <button ng-click="reset()">Reset</button>
-      <button ng-click="clear()">Clear</button>
+      <button id="solve" ng-click="solve()">Solve</button>
+      <button id="clear" ng-click="reset()">Reset</button>
+      <button id="reset" ng-click="clear()">Clear</button>
     </div>
   </div>
 

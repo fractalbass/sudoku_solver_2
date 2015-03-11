@@ -6,7 +6,8 @@
       "ngRoute",
       "sudoku.service",
       "sudoku.controller",
-      "ngAnimate"
+      "ngAnimate",
+      "angularSpinner"
     ]).
     config(['$routeProvider', function($routeProvider) {
       $routeProvider.otherwise({redirectTo: '/view1'});

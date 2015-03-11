@@ -15,6 +15,7 @@
 //= require twitter/bootstrap
 //= require angular/angular
 //= require angular-animate
+//= require angular-spinner
 //= require angular-route/angular-route
 //= require angular-rails-templates
 //= require lodash

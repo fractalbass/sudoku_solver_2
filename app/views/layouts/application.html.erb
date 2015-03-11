@@ -7,9 +7,11 @@
   <%=stylesheet_link_tag "bootstrap_and_overrides.css" %>
   <%=javascript_include_tag "application" %>
   <%=javascript_include_tag "app"%>
+
   <%= csrf_meta_tags %>
 </head>
-<body class="blue">
+<body class="blue"  ng-app="sudokuApp" ng-controller="SudokuCtrl">
+
 <div class="row">
   <div class="span12">
     <div class="navbar navbar-fixed-top">
