@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails sudoku_solver_2: development" uuid="c37f6a5a-f671-42af-8fe2-ffcc424bb203">
+      <user-name>postgres</user-name>
+    </data-source>
+    <data-source name="Rails sudoku_solver_2: test" uuid="8536994a-e2ed-4594-a47e-8f066ca91738">
+      <user-name>postgres</user-name>
+    </data-source>
+    <data-source name="Rails sudoku_solver_2: production" uuid="ece0195e-d373-4ccb-b44e-8e4ef9a3e5f8">
+      <user-name>postgres</user-name>
+    </data-source>
+  </component>
+</project>
