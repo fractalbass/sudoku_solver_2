@@ -2,15 +2,15 @@
     'use strict';
 
     angular.module('sudoku.controller', [])
-        .controller('SudokuCtrl', ['$scope', '$http', '$q', '$rootScope', '$timeout', 'sudokuService', 'usSpinnerService', SudokuCtrl]);
+        .controller('SudokuCtrl', ['$scope', '$http', '$q', '$rootScope', '$timeout', 'sudokuService', 'usSpinnerService', '$animate', SudokuCtrl]);
 
         //  Note that the order of these matches the order in the above .controller line!
-        function SudokuCtrl($scope, $http, $q, $rootScope, $timeout, sudokuService, usSpinnerService) {
+        function SudokuCtrl($scope, $http, $q, $rootScope, $timeout, sudokuService, usSpinnerService, $animate) {
 
             usSpinnerService.stop('spinner-1');
-
+            $scope.showSudoku = true;
             $scope.disableButtons = false;
-
+            var element = angular.element(document.querySelector( '.sudokubox' ));
             $scope.sudoku = sudokuService.reset();
 
             var buttonsActive = function(state) {
@@ -26,13 +26,23 @@
 
 
             $scope.solve = function() {
-
+                $animate.addClass(element, "fade");
                 buttonsActive(false);
                 doSolve();
             }
-            var doSolve = function() {
-                usSpinnerService.spin('spinner-1');
 
+
+            function animateSudoku() {
+                return $q(function (resolve) {
+                   console.log("Now clearing...");
+                   resolve();
+                });
+            }
+
+            var doSolve = function() {
+                animateSudoku().then(function() {
+                    console.log("Now solving...");
+                    usSpinnerService.spin('spinner-1');
                     var requestSudoku = [];
                     for(var i=0;i<$scope.sudoku.length;i++) {
                         var requestRow = "";
@@ -51,12 +61,15 @@
                         }
                         console.log("Showing solved sudoku...");
                         usSpinnerService.stop('spinner-1');
+                        $animate.removeClass(element, "fade");
                         buttonsActive(true);
                     }, (function(data) {
                         usSpinnerService.stop('spinner-1');
                         alert("There has been an error solving the sudoku.  Please try again and make sure you enter all the numbers correctly.");
                         buttonsActive(true);
+                        $animate.removeClass(element, "fade");
                     }));
+                });
             };
 
             $scope.setSolution = function(solution) {
