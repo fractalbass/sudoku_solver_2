@@ -8,7 +8,7 @@ class SudokuController < ApplicationController
 
     a = JSON.parse(data)
     sudoku = Sudoku.new(a);
-    sudoku.set_max_iterations(1000);
+    sudoku.set_max_iterations(10000);
     solved, @iterations = sudoku.solve()
     logger.info('Solution found.')
     logger.info(solved)
