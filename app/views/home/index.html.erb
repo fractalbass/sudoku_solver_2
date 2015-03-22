@@ -16,7 +16,14 @@
     <div class="sudokubuttons">
       <button id="solve" ng-click="solve()">Solve</button>
       <button id="clear" ng-click="reset()">Reset</button>
-      <button id="reset" ng-click="clear()">Clear</button>
+      <button id="reset" ng-click="clear()">Clear</button><br>
+      Maximum Iterations: <select style="max-width:95px;line-height:14px;" ng-model="maxiter">
+        <option value="1000">1,000</option>
+        <option value="10000">10,000</option>
+        <option value="100000">100,000</option>
+        <option value="1000000">1,000,000</option>
+        <option value="-1">Infinite</option>
+      </select>
     </div>
   </div>
 

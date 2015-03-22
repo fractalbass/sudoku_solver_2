@@ -10,7 +10,7 @@
             clear: clear
         };
 
-        function solve(sudoku) {
+        function solve(sudoku, maxiter) {
             var deferred = $q.defer();
             console.log("Now attempting to solve " + JSON.stringify(sudoku));
             var req = {
@@ -19,7 +19,7 @@
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                params: { data: JSON.stringify(sudoku) }
+                params: { data: JSON.stringify(sudoku), maxiter: maxiter }
             }
 
             $http(req).success(function(data, scope) {

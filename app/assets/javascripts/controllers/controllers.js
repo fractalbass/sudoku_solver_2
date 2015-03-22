@@ -9,6 +9,7 @@
 
             usSpinnerService.stop('spinner-1');
             $scope.showSudoku = true;
+            $scope.maxiter = 10000;
             $scope.disableButtons = false;
             var element = angular.element(document.querySelector( '.sudokubox' ));
             $scope.sudoku = sudokuService.reset();
@@ -53,7 +54,7 @@
                     }
 
                     console.log("Solving sudoku...")
-                    sudokuService.solve(requestSudoku).then(function (data) {
+                    sudokuService.solve(requestSudoku, $scope.maxiter).then(function (data) {
                         for(i=0;i<data.cells.length;i++) {
                             for(j=0;j<data.cells[i].length;j++) {
                                 $scope.sudoku[i][j] = data.cells[i][j].fixed_value;
