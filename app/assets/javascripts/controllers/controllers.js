@@ -66,7 +66,7 @@
                         buttonsActive(true);
                     }, (function(data) {
                         usSpinnerService.stop('spinner-1');
-                        alert("There has been an error solving the sudoku.  Please try again and make sure you enter all the numbers correctly.");
+                        alert("Darn!  Either we exceeded the 30 second time limit, or you entered an invalid puzzle.  Please correct the puzzle, or enter a different one.");
                         buttonsActive(true);
                         $animate.removeClass(element, "fade");
                     }));
