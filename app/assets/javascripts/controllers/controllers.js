@@ -55,12 +55,17 @@
 
                     console.log("Solving sudoku...")
                     sudokuService.solve(requestSudoku, $scope.maxiter).then(function (data) {
-                        for(i=0;i<data.cells.length;i++) {
-                            for(j=0;j<data.cells[i].length;j++) {
-                                $scope.sudoku[i][j] = data.cells[i][j].fixed_value;
-                            }
+                        if (data==null) {
+                            alert("Darn!  Either we exceeded the 30 second time limit, or you entered an invalid puzzle.  Please correct the puzzle, or enter a different one.");
                         }
-                        console.log("Showing solved sudoku...");
+                        else{
+                            for(i=0;i<data.cells.length;i++) {
+                                for(j=0;j<data.cells[i].length;j++) {
+                                    $scope.sudoku[i][j] = data.cells[i][j].fixed_value;
+                                }
+                            }
+                            console.log("Showing solved sudoku...");
+                        }
                         usSpinnerService.stop('spinner-1');
                         $animate.removeClass(element, "fade");
                         buttonsActive(true);
