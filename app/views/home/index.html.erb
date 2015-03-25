@@ -1,14 +1,26 @@
 
 <div class="container span4">
 
-
+<span style="margin-left:30px;">Click on a cell to change its initial value.</span>
   <div ng-show="showSudoku" class="sudokubox animated ">
     <span us-spinner="{radius:30, width:8, length: 16}" spinner-key="spinner-1"></span>
         <table>
           <tr ng-repeat="row in sudoku track by $index">
             <td class="sudokucell row{{$index}} col{{$parent.$index}} animated fadeIn" ng-repeat="cell in row track by $index">
               <!--input ng-model="sudoku.row.$index" style="max-width:10px;" size="1" type="text" value="{{ cell }} " size="1" -->
-              <input ng-model="row[$index]" style="max-width:10px;" type="text" size="1">
+              <!--<input ng-model="row[$index]" style="max-width:12px;" type="text" size="1">-->
+              <select style="width:25px;height=10px;-webkit-appearance: none;" ng-model="row[$index]">
+                <option value=" "> </option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+              </select>
             </td>
           </tr>
         </table>
